@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: resultserver
+  name: resultserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resultserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: resultserver
+    spec:
+      containers:
+      - image: hilal4587/resultserver13
+        name: resultserver13
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: servers-config
+        env:
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_PASSWORD
+        #   value: Clarusway_1
+        # - name: MYSQL_USER
+        #   value: clarus
+        # - name: MYSQL_DATABASE
+        #   value: phonebook
+        # - name: MYSQL_DATABASE_HOST
+        #   value: mysql    
+        resources: {}
