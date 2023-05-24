@@ -1,6 +1,6 @@
 ```bash
-helm repo add phonebook-repo https://raw.githubusercontent.com/james-clarusway/phonebook-repo/main
-helm install phonebook-app phonebook-repo/phonebook-chart
+helm repo add phonebook-Helm-repo https://raw.githubusercontent.com/hilal4587/phonebook-Helm-repo/main
+helm install phonebook-helm-repo phonebook-Helm-repo/phonebook-chart
 ```
 - To use own images execute as below:
 ```bash
